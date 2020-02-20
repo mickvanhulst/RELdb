@@ -3,7 +3,7 @@ This package serves the purpose of loading required files for the REL package in
 running:
 
 ```cmd
-pip install git+https://github.com/mickvanhulst/REL_database
+pip install git+https://github.com/mickvanhulst/RELdb
 ```
 
 # Example usage

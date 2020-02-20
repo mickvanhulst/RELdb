@@ -9,14 +9,14 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='REL_database',
+    name='RELdb',
     version='0.0.1',
 
     description='Pretrained word embeddings in Python.',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/mickvanhulst/REL_database',
+    url='https://github.com/mickvanhulst/RELdb',
 
     # Author details
     author='Johannes Michael van Hulst',
