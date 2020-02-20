@@ -8,9 +8,34 @@ pip install git+https://github.com/mickvanhulst/RELdb
 
 # Example usage
 Usage of this package is mostly integrated in the REL package and in the corresponding tutorials. Nonetheless,
-we will briefly go over the functionalities of the package.
+we will briefly go over the functionalities of the package. There are two modes that are of importance for the REL package.
+The first is loading loading embedding files (e.g. Wikipedia2Vec) in a sqlite3 database. The second one is loading
+Wikipedia p(e|m) dictionaries in a sqlite3 database.
 
+
+Loading Wikipedia2Vec embeddings into a database is rather straightforward. The implementation differentiates between
+either entities or regular words. Entities contain `ENTITY/` in their respective words, while normal words do not. One thing
+that we must note here is that we assume a word2vec format for the embedding file.
 ```python
+from RELdb.generic import GenericLookup
+
+save_dir = "C:/test/"
+
+# Embedding load.
+emb = GenericLookup('entity_word_embedding', save_dir=save_dir, table_name='embeddings')
+emb.load_word2emb('D:/enwiki-20190701-model-w2v-dim300', batch_size=5000, reset=True)
+
+# Query
+import torch
+embeddings = torch.stack([torch.tensor(e) for e in emb.emb(['in', 'the', 'end'], "embeddings")])
+```
+
+
+Finally, added an example below for loading Wikipedia corpuses into a database. This is fully integrated in the package itself,
+but perhaps it can be of service to someone in the future.
+```python
+from RELdb.generic import GenericLookup
+
 save_dir = "C:/test/"
 
 # Test data
@@ -32,32 +57,6 @@ lowercase = wiki.wiki("Netherlands".lower(), "wiki", "lower")
 
 ```
 
-
-```python
-save_dir = "C:/test/"
-
-# Embedding load.
-emb = GenericLookup('entity_word_embedding', save_dir=save_dir, table_name='embeddings')
-emb.load_word2emb('D:/enwiki-20190701-model-w2v-dim300', batch_size=5000, limit=100000, reset=True)
-
-# Query
-import torch
-embeddings = torch.stack([torch.tensor(e) for e in emb.emb(['in', 'the', 'end'], "embeddings")])
-
-```
-
-
-```python
-save_dir = "C:/test/"
-
-emb = GloveEmbedding('common_crawl_48', save_dir=save_dir, table_name='embeddings',
-                     columns={"emb": "blob"}, d_emb=300)
-
-emb.load_word2emb(5000)
-for w in ['canada', 'vancouver', 'toronto']:
-    print('embedding {}'.format(w))
-    print(emb.emb([w], 'embeddings'))
-```
 
 # Acknowledgements
 This package is based on the [Embeddings](https://github.com/vzhong/embeddings) package by Victor Zhong. It was altered
