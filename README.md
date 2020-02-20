@@ -55,10 +55,8 @@ emb = GloveEmbedding('common_crawl_48', save_dir=save_dir, table_name='embedding
 
 emb.load_word2emb(5000)
 for w in ['canada', 'vancouver', 'toronto']:
-    start = time()
     print('embedding {}'.format(w))
     print(emb.emb([w], 'embeddings'))
-    print('took {}s'.format(time() - start))
 ```
 
 # Acknowledgements
