@@ -30,9 +30,9 @@ import torch
 embeddings = torch.stack([torch.tensor(e) for e in emb.emb(['in', 'the', 'end'], "embeddings")])
 ```
 
-
 Finally, added an example below for loading Wikipedia corpuses into a database. This is fully integrated in the package itself,
 but perhaps it can be of service to someone in the future.
+
 ```python
 from RELdb.generic import GenericLookup
 
