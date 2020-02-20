@@ -1,10 +1,10 @@
-from base_embedding import Embedding
+from base import DB
 from numpy import zeros, float32 as REAL
 import numpy as np
 from gensim import utils
 from time import time
 
-class GenericLookup(Embedding):
+class GenericLookup(DB):
     def __init__(
         self,
         name,
@@ -134,7 +134,7 @@ class GenericLookup(Embedding):
         self.create_index()
 
 if __name__ == "__main__":
-    save_dir = "C:/Users/mickv/Desktop/testemb/"
+    save_dir = "C:/test"
 
     # Test data
     ent_p_e_m_index = {

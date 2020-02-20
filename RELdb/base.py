@@ -5,32 +5,7 @@ import logging
 from array import array
 import json
 
-class Embedding:
-    # def load_memory(self):
-    #     # Read database to tempfile
-    #     tempfile = StringIO()
-    #     for line in self.db.iterdump():
-    #         tempfile.write('%s\n' % line)
-    #     self.db.close()
-    #     tempfile.seek(0)
-    #
-    #     # Create a database in memory and import from tempfile
-    #     # open database in autocommit mode by setting isolation_level to None.
-    #     self.db = sqlite3.connect(":memory:", isolation_level=None)
-    #     self.db.cursor().executescript(tempfile.read())
-    #     self.db.row_factory = sqlite3.Row
-
-    # def __len__(self):
-    #     """
-    #
-    #     Returns:
-    #         count (int): number of embeddings in the database.
-    #
-    #     """
-    #     c = self.db.cursor()
-    #     q = c.execute('select count(*) from embeddings')
-    #     return q.fetchone()[0]
-
+class DB:
     @staticmethod
     def download_file(url, local_filename):
         """
@@ -172,10 +147,7 @@ class Embedding:
 
         """
         c = self.db.cursor()
-        # q = c.execute('select emb from embeddings where word = :word', {'word': w}).fetchone()
-        # return array('f', q[0]).tolist() if q else None
-        # print(w)
-        # print(np.array(w).shape)
+
         res = []
         c.execute("BEGIN TRANSACTION;")
         for word in w:

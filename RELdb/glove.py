@@ -2,9 +2,9 @@ from collections import namedtuple
 import zipfile
 from numpy import zeros
 
-from base_embedding import Embedding
+from base import DB
 
-class GloveEmbedding(Embedding):
+class GloveEmbedding(DB):
     """
     Reference: http://nlp.stanford.edu/projects/glove
     """

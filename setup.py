@@ -1,4 +1,4 @@
-from setuptools import setup
+import setuptools
 from codecs import open
 from os import path
 
@@ -8,12 +8,13 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-setup(
+setuptools.setup(
     name='RELdb',
     version='0.0.1',
 
     description='Pretrained word embeddings in Python.',
     long_description=long_description,
+    long_description_content_type="text/markdown",
 
     # The project's main homepage.
     url='https://github.com/mickvanhulst/RELdb',
@@ -30,4 +31,6 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=['tqdm', 'requests', 'numpy', 'gensim'],
+    packages=setuptools.find_packages(),
+    python_requires='>=3.6',
 )
