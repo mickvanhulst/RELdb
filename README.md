@@ -1,4 +1,4 @@
-# REL database
+# RELdb
 This package serves the purpose of loading required files for the REL package into a database. Please install it by 
 running:
 

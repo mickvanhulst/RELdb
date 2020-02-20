@@ -1,4 +1,4 @@
-from base import DB
+from RELdb.base import DB
 from numpy import zeros, float32 as REAL
 import numpy as np
 from gensim import utils

@@ -2,7 +2,7 @@ from collections import namedtuple
 import zipfile
 from numpy import zeros
 
-from base import DB
+from RELdb.base import DB
 
 class GloveEmbedding(DB):
     """
