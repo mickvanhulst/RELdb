@@ -62,7 +62,7 @@ for w in ['canada', 'vancouver', 'toronto']:
 ```
 
 # Acknowledgements
-This package is based on the [Embeddings](https://github.com/vzhong/embeddings) package by Viktor Zhong. It was altered
+This package is based on the [Embeddings](https://github.com/vzhong/embeddings) package by Victor Zhong. It was altered
 to not just load embeddings but also work with loading required Wikipedia files. Due to this change we felt the
 files were no longer in line with the original package and thus decided to develop a new package. Furthermore, this package will be further developed in the future to deal with
 a multitude of REL-related database files and database architectures. 
